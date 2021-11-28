@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<title>Projects</title>
+
+<div class="col-md-8">
+    <h1>Personal Projects</h1>
+    <p>These are some projects that I've been working on!</p>
+</div>
+
+<hr style="width:50%;text-align:left;margin-left:0">
+
+<div class="col-md-8" style="margin-top:30px">
+        {% for project in descriptions %}
+        <h3 style="text-align:left;"><a href="/projects/{{ project['path'] }}" title="">{{ project['title'] }}</a></h3>
+            <p>{{ project['description'] }}</p>
+        {% end %}
+</div>
+
+{% end %}

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<title>HEIC to JPEG Converter</title>
+
+<div class="col-md-8">
+    <h1>Instructions</h1>
+    <p>
+       Select an .HEIC file, then click Upload.
+    </p>
+</div>
+
+<div>
+  <p>
+    <form enctype="multipart/form-data" method="POST">
+    <input type="file" name="file1" /><br><br>
+    <input type="submit" value="Upload" />
+    </form>
+   </p>
+</div>
+
+{% end %}

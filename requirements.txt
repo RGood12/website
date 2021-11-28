@@ -1,0 +1,13 @@
+certifi==2022.6.15
+cffi==1.15.1
+charset-normalizer==2.1.1
+idna==3.3
+Pillow==9.1.0
+pycparser==2.21
+pyheif==0.7.0
+pyshorteners==1.0.1
+qrcode==7.3.1
+requests==2.28.1
+tornado==6.1
+urllib3==1.26.12
+whatimage==0.0.3

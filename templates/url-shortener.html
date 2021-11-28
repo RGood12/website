@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<title>URL Shortener</title>
+
+<div class="col-md-8">
+    <h1>Instructions</h1>
+    <p>
+       Copy and paste the link for which you'd like to be shortened, then click Generate.
+    </p>
+</div>
+
+<div>
+    <p>
+      <form method="POST">
+      <label for="link">Link:</label><br>
+      <input type="text" name="link" id="link">
+      <br><br>
+      <input type="submit" value="Generate">
+      </form>
+    </p>
+</div>
+
+{% end %}

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<title>QR Code Generator</title>
+
+<div>
+  <p>QR code for <b>{{ link }}</b></p>
+  <i>Right click, and Save Image As</i>
+  <! -- check HTML tag for the default image name -->
+  <img src="data:image/png;base64, {{ qr_str }}" alt="QR Code" title="{{ domain }}"/>
+  <p>
+   <form>
+    <input type="button" value="Go back!" onclick="history.back()">
+   </form>
+  </p>
+
+</div>
+
+{% end %}
