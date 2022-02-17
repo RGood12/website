@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block heading %}Projects{% end %}
+
+{% block body %}
+
+<article>
+  {% for article in descriptions %}
+  <h2><a href="/projects/{{ article['path'] }}" title="">{{ article['title'] }}</a></h2>
+  <p>{{ article['description'] }}</p>
+  </br>
+  {% end %}
+</article>
+
+{% end %}
