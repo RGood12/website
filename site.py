@@ -4,8 +4,6 @@ import tornado.web
 import os
 import json
 
-#arbitrary change
-
 # home page of website
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -29,7 +27,7 @@ if __name__ == "__main__":
 
     dirname = os.path.dirname(__file__)
     settings = {"template_path": os.path.join(dirname, 'templates'),
-                "static_path"  : os.path.join(dirname, 'static')}
+                "static_path"  : os.path.join(dirname, '/var/www/randygoodson.com/static/')}
 
     app =tornado.web.Application([
         (r"/", MainHandler),
@@ -38,5 +36,5 @@ if __name__ == "__main__":
         (r"/(projects/[a-z_0-9]+)", ProjectHandler),
     ], **settings)
 
-    app.listen(8000)
+    app.listen(8080)
     tornado.ioloop.IOLoop.current().start()
