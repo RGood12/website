@@ -36,5 +36,5 @@ if __name__ == "__main__":
         (r"/(projects/[a-z_0-9]+)", ProjectHandler),
     ], **settings)
 
-    app.listen(8080)
+    app.listen(8000)
     tornado.ioloop.IOLoop.current().start()
