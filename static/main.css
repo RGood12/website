@@ -53,7 +53,7 @@ a {
 
 a:hover {
   text-decoration: none; 
-  color: #84898fc9;
+  color: #006eff;
 }
 
 a:focus {
@@ -99,11 +99,8 @@ a.website {
 }
 
 img.headshot {
-    position: absolute;
-    z-index: 1;
-    border-radius: 0 50% 50% 50%;
-    width: 100%;
-    height: auto;
+    border-radius: 50%;
+    width: 65%;
 }
 
 img.card-img-top {
