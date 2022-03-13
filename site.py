@@ -3,6 +3,10 @@ import tornado.ioloop
 import tornado.web
 import os
 import json
+import qrcode
+import base64
+from io import BytesIO
+from urllib.parse import urlparse
 
 # home page of website
 class MainHandler(tornado.web.RequestHandler):
@@ -23,6 +27,21 @@ class ProjectHandler(tornado.web.RequestHandler):
     def get(self, filename):
        self.render(f"{filename}.html")
 
+class QRHandler(tornado.web.RequestHandler):
+    def get(self):
+       self.render("qr.html")
+    def post(self):
+       link = self.get_argument('link', None)
+
+       img = qrcode.make(link)
+
+       # writing QR code to base64 string to display
+       buffered = BytesIO()
+       img.save(buffered, format="JPEG")
+       qr_str =  base64.b64encode(buffered.getvalue())
+
+       self.render("qr_show.html", qr_str = qr_str, link = link, domain = urlparse(link).netloc)
+
 if __name__ == "__main__":
 
     dirname = os.path.dirname(__file__)
@@ -32,6 +51,7 @@ if __name__ == "__main__":
     app =tornado.web.Application([
         (r"/", MainHandler),
         (r"/resume", ResumeHandler),
+        (r"/qr", QRHandler),
        # (r"/projects", ProjectsIndexHandler),
         (r"/(projects/[a-z_0-9]+)", ProjectHandler),
     ], **settings)
