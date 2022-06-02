@@ -17,6 +17,10 @@ class ResumeHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("resume.html")
 
+class WIDHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("WID.html")
+
 class ProjectsIndexHandler(tornado.web.RequestHandler):
     def get(self):
         with open("templates/projects/description.json", 'r') as fh:
@@ -51,6 +55,7 @@ if __name__ == "__main__":
     app =tornado.web.Application([
         (r"/", MainHandler),
         (r"/resume", ResumeHandler),
+        (r"/whatido", WIDHandler),
         (r"/qr", QRHandler),
        # (r"/projects", ProjectsIndexHandler),
         (r"/(projects/[a-z_0-9]+)", ProjectHandler),
