@@ -9,30 +9,25 @@
     <link rel="stylesheet" href="{{ static_url("main.css") }}">
 
 </head>
-<body>
-    <header class="site-header">
-      <nav class="navbar navbar-expand bg-steel">
-        <div class="container">
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-            </div>
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/">Home</a>
-               <a class="nav-item nav-link" href="/whatido">What I Do</a>
-                <!--  <a class="nav-item nav-link" href="/projects">Projects</a> -->
-                <a class="nav-item nav-link" href="/resume">Résumé</a>
-                <a class="nav-item nav-link" href="/qr">QR Code Generator</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main role="main" class="container">
+
+
+ <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+  <label for="menu-icon"></label>
+  <nav class="nav">
+   <ul class="pt-5">
+   <li><a href="/">Home</a></li>
+   <li><a href="/whatido">What I Do</a></li>
+   <li><a href="/resume">Resume</a></li>
+   <li><a href="/qr">QR Code Generator</a></li>
+   </ul>
+  </nav>
+
+<div class="padding" style="display:block; min-height: 50px;">&nbsp;</div>
+
+<main role="main" class="container">
       <div class="row">
         {% block body %}Default body{% end %}
         </div>
     </main>
 
-</body>
 </html>

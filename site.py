@@ -57,7 +57,7 @@ if __name__ == "__main__":
         (r"/resume", ResumeHandler),
         (r"/whatido", WIDHandler),
         (r"/qr", QRHandler),
-       # (r"/projects", ProjectsIndexHandler),
+        # (r"/projects", ProjectsIndexHandler),
         (r"/(projects/[a-z_0-9]+)", ProjectHandler),
     ], **settings)
 
