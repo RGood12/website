@@ -21,6 +21,16 @@ class WIDHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("WID.html")
 
+class CertIndexHandler(tornado.web.RequestHandler):
+    def get(self):
+        with open("templates/certsandtrainings/description.json", 'r') as fh:
+            d = json.load(fh)
+        self.render("certsandtrainings_index.html", descriptions = d)
+
+class CertHandler(tornado.web.RequestHandler):
+    def get(self, filename):
+       self.render(f"{filename}.html")
+
 class ProjectsIndexHandler(tornado.web.RequestHandler):
     def get(self):
         with open("templates/projects/description.json", 'r') as fh:
@@ -57,7 +67,9 @@ if __name__ == "__main__":
         (r"/resume", ResumeHandler),
         (r"/whatido", WIDHandler),
         (r"/qr", QRHandler),
-        # (r"/projects", ProjectsIndexHandler),
+        (r"/certsandtrainings", CertIndexHandler),
+        (r"/(certsandtrainings/[a-z_0-9]+)", CertHandler),
+        (r"/projects", ProjectsIndexHandler),
         (r"/(projects/[a-z_0-9]+)", ProjectHandler),
     ], **settings)
 
