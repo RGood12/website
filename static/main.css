@@ -15,8 +15,8 @@ body.dark {
 }
 
 .btn {
-  color: #353746;
-  background-color: #353746;
+  color: #000814;
+  background-color: #000814;
 }
 
 body.dark .btn {
@@ -85,25 +85,12 @@ a:hover {
 }
 
 body.dark a:hover {
-  color: #00449d
+  color: #00b6ff
 }
 
-a.projlink {
-  background: none;
-  color: white;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 7px 7px 7px 7px;
+svg {
+  color: yellow;
 }
-
-a.github {
-  background-color: #54aae7ea;
-}
-
-a.website {
-  background-color: #40e9a8ef;
-}
-
 .content {
   margin-top: 20px;
   padding-right: 15px;
@@ -173,6 +160,10 @@ code {
 .table td p {
   font-size:13px;
   line-height: 14px;
+}
+
+::selection {
+  background: #62a6ff
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
@@ -280,7 +271,7 @@ code {
   z-index: 9;
   overflow: hidden;
   box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
-  background-color: #353746;
+  background-color: #000814;
   animation: border-transform 7s linear infinite;
   transition: top 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),  
               right 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
@@ -288,6 +279,11 @@ code {
               width 650ms 400ms cubic-bezier(0.23, 1, 0.32, 1),
               height 650ms 400ms cubic-bezier(0.23, 1, 0.32, 1);
 }
+
+body.dark .nav{
+  background-color: #003fba;
+}
+
 @keyframes border-transform{
     0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 
   14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 
@@ -363,9 +359,14 @@ code {
   color: white;
   transition: all 250ms linear;
 }
+
 .nav ul li a:hover{
   text-decoration: none;
   color: #006eff;
+}
+
+body.dark ul li a:hover{
+  color: #000814;
 }
 
 .nav ul li a:hover:after{
@@ -395,7 +396,8 @@ code {
   transition-delay: 1720ms;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 640px) {  
+    
   .menu-icon:checked + label,
   .menu-icon:not(:checked) + label{
     right: 55px;
@@ -409,7 +411,8 @@ code {
   }
  .nav ul li{
   position: relative;
+  left: 22px;
  .nav ul li a{
-    font-size: 6vh;
+    font-size: 5vh;
   }
 }
