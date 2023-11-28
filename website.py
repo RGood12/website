@@ -3,15 +3,13 @@ import tornado.ioloop
 import tornado.web
 import os
 import io
-import whatimage
-import pyheif
-from PIL import Image
 import json
 import qrcode, pyshorteners
 import base64
 from io import BytesIO
 from urllib.parse import urlparse
-from tornado.web import RedirectHandler, Application
+from static.secrets import port
+from scripts.heic_convert import heic_convert
 
 # home page of website
 class MainHandler(tornado.web.RequestHandler):
@@ -71,23 +69,8 @@ class HEICHandler(tornado.web.RequestHandler):
     def get(self):
        self.render("heic.html")
     def post(self):
-
-        file1 = self.request.files['file1'][0]
-        original_fname = file1['filename'].split(".")[0]
-        original_fname = f"{original_fname}.jpeg"
-        
         try:
-            i = pyheif.read_heif(file1['body'])
-
-            # Convert to other file format like jpeg
-            s = io.BytesIO()
-            pi = Image.frombytes(mode=i.mode, size=i.size, data=i.data)
-            pi.save(s, "JPEG")
-        
-            self.set_header('Content-Type', 'application/octet-stream')
-            self.set_header('Content-Disposition', 'attachment; filename=' + original_fname)
-        
-            self.write(s.getvalue())
+            heic_convert(self, self.request.files.items())
         except:
             self.render("heic_error.html")
 
@@ -121,5 +104,5 @@ if __name__ == "__main__":
         (r"/(projects/[a-z_0-9]+)", ProjectHandler),
     ], **settings)
 
-    app.listen(8000)
+    app.listen(port)
     tornado.ioloop.IOLoop.current().start()
