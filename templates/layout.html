@@ -13,64 +13,14 @@
 <br>
 <button id="mode" class="btn" color="black">🌙</button>
 
-<script>
-let storage = {darkMode: "disabled"}
+  <div class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-function userPreferesDarkMode() {
-  return localStorage.getItem("darkMode") === "enabled";
-}
-
-function setThemePreference(value) {
-  localStorage.setItem("darkMode", value || "disabled");
-}
-
-const enableDarkMode = () => {
-  // 1. Add the class to the body
-  document.body.classList.add("dark");
-};
-
-const disableDarkMode = () => {
-  // 1. Remove the class from the body
-  document.body.classList.remove("dark");
-};
-
-
-function setTheme() {
-  // If the user already visited and enabled darkMode
-  // start things off with it on
-  if (userPreferesDarkMode()) {
-    enableDarkMode();
-  } else {
-    disableDarkMode();
-  }
-}
-
-function bootstrap() {
-     const darkModeToggleButton = document.querySelector("#mode");
-darkModeToggleButton.addEventListener("click", () => {
-  if (userPreferesDarkMode()) {
-    setThemePreference("disabled");
-    disableDarkMode();
-  } else {
-    setThemePreference("enabled");
-    enableDarkMode();
-  }
-});
-
-setTheme();
-}
-
- document.addEventListener("DOMContentLoaded", function(event) {
-     // Your code to run since DOM is loaded and ready
-     bootstrap()
-  });
-</script>
-
-
- <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
-  <label for="menu-icon"></label>
   <nav class="nav">
-   <ul class="pt-5">
+   <ul>
    <li><a href="/">Home</a></li>
    <li><a href="/whatido">What I Do</a></li>
    <li><a href="/certsandtrainings">Certs & Trainings</a></li>
@@ -86,5 +36,69 @@ setTheme();
         {% block body %}Default body{% end %}
         </div>
     </main>
+
+<script>
+let storage = {darkMode: "disabled"}
+
+function userPreferesDarkMode() {
+  return localStorage.getItem("darkMode") === "enabled";
+}
+
+function setThemePreference(value) {
+  localStorage.setItem("darkMode", value || "disabled");
+}
+
+const enableDarkMode = () => {
+  // 1. Add the class to the body
+  document.body.classList.add("dark");
+  // 2. Change button emoji to ☀️ when enabling dark mode
+  document.getElementById('mode').textContent = '☀️';
+};
+
+const disableDarkMode = () => {
+  // 1. Remove the class from the body
+  document.body.classList.remove("dark");
+  // 2. Change button emoji to 🌙 when disabling dark mode
+  document.getElementById('mode').textContent = '🌙';
+};
+
+function setTheme() {
+  // If the user already visited and enabled darkMode
+  // start things off with it on
+  if (userPreferesDarkMode()) {
+    enableDarkMode();
+  } else {
+    disableDarkMode();
+  }
+}
+
+function bootstrap() {
+  const darkModeToggleButton = document.querySelector("#mode");
+  darkModeToggleButton.addEventListener("click", () => {
+    if (userPreferesDarkMode()) {
+      setThemePreference("disabled");
+      disableDarkMode();
+    } else {
+      setThemePreference("enabled");
+      enableDarkMode();
+    }
+  });
+
+  setTheme();
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  // Your code to run since DOM is loaded and ready
+  bootstrap();
+});
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    menuToggle.addEventListener('click', function() {
+      this.classList.toggle('open');
+      nav.classList.toggle('open');
+    });
+
+</script>
 
 </html>
