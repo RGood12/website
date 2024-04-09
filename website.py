@@ -84,11 +84,24 @@ class URLHandler(tornado.web.RequestHandler):
 
        self.render("url_show.html", short_url = short_url, link = link, domain = urlparse(link).netloc)
 
+class BPHandler(tornado.web.RequestHandler):
+    def get(self):
+       self.render("photo_uploader.html")
+    def post(self):
+        try:
+            buddy_name = self.get_argument('buddy', None)
+            print(buddy_name)
+            msg = self.get_argument('message', None)
+            print(msg)
+            submitt = self.get_argument('submitter', None)
+            print(submitt)
+        except:
+            self.render("heic_error.html")
 if __name__ == "__main__":
 
     dirname = os.path.dirname(__file__)
     settings = {"template_path": os.path.join(dirname, 'templates'),
-                "static_path"  : os.path.join(dirname, '/var/www/randygoodson.com/static/')}
+                "static_path"  : os.path.join(dirname, 'static')}
 
     app =tornado.web.Application([
         (r"/", MainHandler),
@@ -102,6 +115,7 @@ if __name__ == "__main__":
         (r"/(certsandtrainings/[a-z_0-9]+)", CertHandler),
         (r"/projects", ProjectsIndexHandler),
         (r"/(projects/[a-z_0-9]+)", ProjectHandler),
+        (r"/buddy-photo-upload", BPHandler),
     ], **settings)
 
     app.listen(port)

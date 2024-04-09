@@ -3,20 +3,24 @@
 
 <title>HEIC to JPEG Converter</title>
 
+<div class="form-container">
 <div class="col-md-8">
     <h1>Instructions</h1>
     <p>
-       Select an .HEIC file, then click Upload.
+       Select .HEIC file(s), then click Upload. A .zip file with the converted images will be returned.
     </p>
 </div>
 
-<div>
-  <p>
+<div class="col-md-8">
+    <p></p>
     <form enctype="multipart/form-data" method="POST">
-    <input type="file" name="files" multiple><br><br>
-    <input type="submit" value="Upload">
+    <fieldset style="width: 420px; height: 100px;">
+        <legend>Upload</legend>
+        <input type="file" name="files" multiple style="margin-left: 10px; margin-right: -50px; border-radius: 6px; padding: 2px 10px 4px 2px;">
+        <input type="submit" value="Upload" style="display: inline;">
+    </fieldset>
     </form>
-   </p>
 </div>
 
+</div>
 {% end %}
