@@ -2,7 +2,7 @@
 static/secrets.py
 
 # Venv
-web_env/
+wb_env/
 dev_env/
 
 # Byte-compiled / optimized / DLL files
