@@ -3,15 +3,34 @@
 
 <title>URL Shortener</title>
 
-<div>
-  <p>Shortened URL for <i><u>{{ link }}</i></u>
-  <br><br>
-  <b>{{ short_url }}</b></p>
+<div class="form-container">
+<div class="col-md-8">
+    <h2>URL Shortener</h2>
     <p>
-   <form>
-    <input type="button" value="Go back!" onclick="history.back()">
-   </form>
-  </p>
+       Shortened URL for <i><u>{{ link }}</i></u>. Click 📋 to copy to clipboard.
+    </p>
 </div>
 
+<hr>
+
+<div class="col-md-8">
+    <p></p>
+        <fieldset style="width: 380px;height: 100px;">
+            <legend>Shortened URL</legend>
+            <p id="short_url" style="margin-left: 18px; font-size: 22px; display: inline;">{{ short_url }}</p>
+            <button class="button" style="float: right; margin-right: 9px; margin-top: -1px; background-color: lightgray; font-size: 24px; padding: revert; display: inline;" onclick="Copy()">📋</button>
+        </fieldset>
+    <button class="button" style="float: left; font-size: 16px;" onclick="window.location.href='/url-shortener'";>Reset</button>
+
+<script>
+  let text = document.getElementById('short_url').innerHTML;
+  const Copy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      console.log('Content copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  }
+</script>
 {% end %}

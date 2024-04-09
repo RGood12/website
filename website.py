@@ -1,4 +1,3 @@
-import tornado.template
 import tornado.ioloop
 import tornado.web
 import os
@@ -10,6 +9,9 @@ from io import BytesIO
 from urllib.parse import urlparse
 from static.secrets import port
 from scripts.heic_convert import heic_convert
+import sys
+sys.path.insert(1, '/home/randy/git/birthday-bot/')
+from bd.upload_photo import *
 
 # home page of website
 class MainHandler(tornado.web.RequestHandler):
@@ -90,12 +92,27 @@ class BPHandler(tornado.web.RequestHandler):
     def post(self):
         try:
             buddy_name = self.get_argument('buddy', None)
-            print(buddy_name)
             msg = self.get_argument('message', None)
-            print(msg)
-            submitt = self.get_argument('submitter', None)
-            print(submitt)
-        except:
+            submitter_name = self.get_argument('submitter', None)
+
+            f = self.request.files['file'][0]
+            file_body = f['body']
+            file_name = f['filename']
+
+            # Write the file to the temporary directory
+            with open(file_name, 'wb') as f:
+                f.write(file_body)
+
+            # Upload the file to Google Drive using the function from google_drive.py
+            file_id = upload_file(file_name, buddy_name, msg, submitter_name)
+            # File uploaded successfully, remove the temporary file/directory
+            os.remove(file_name)
+
+        #except Exception as e:
+        #    self.set_status(500)
+        #    self.write(f"Error uploading file: {str(e)}")
+        except Exception as e:
+            print(e)
             self.render("heic_error.html")
 if __name__ == "__main__":
 

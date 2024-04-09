@@ -3,17 +3,39 @@
 
 <title>QR Code Generator</title>
 
-<div>
-  <p>QR code for <b>{{ link }}</b></p>
-  <i>Right click, and Save Image As</i>
-  <! -- check HTML tag for the default image name -->
-  <img src="data:image/png;base64, {{ qr_str }}" alt="QR Code" title="{{ domain }}"/>
-  <p>
-   <form>
-    <input type="button" value="Go back!" onclick="history.back()">
-   </form>
-  </p>
+<div class="form-container">
+    <div class="col-md-8">
+        <h2>QR Code Generator</h2>
+        <p>
+            QR Code for <i><u>{{ link }}</u></i>. Click 💾 to save as a .png, or right click to save as.
+        </p>
+    </div>
 
+    <hr>
+
+    <div class="col-md-8">
+        <p></p>
+        <fieldset style="width: 296px;height: 345px;">
+            <legend>QR Code</legend>
+            <img id="qr_code" src="data:image/png;base64, {{ qr_str }}" alt="QR Code" title="{{ domain }}"/>
+        </fieldset>
+        <a id="save" download="test.com.png" class="button" style="float: left;background-color: lightgray;font-size: 24px;padding: 6px 10px 6px 10px;display: inline;">💾</a>
+        <button class="button" style="margin-left: 175px; font-size: 16px;" onclick="window.location.href='/qr'";>Reset</button>
+    </div>
 </div>
+    <script>
+        document.getElementById('save').addEventListener('click', function () {
+            var image = document.getElementById('qr_code');
+            var canvas = document.createElement('canvas');
+            canvas.width = image.width;
+            canvas.height = image.height;
+
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(image, 0, 0);
+
+            var dataURL = canvas.toDataURL('image/png');
+            this.href = dataURL;
+        });
+    </script>
 
 {% end %}

@@ -14,12 +14,36 @@ body.dark {
   color: #006eff;
 }
 
-.btn {
+.display-btn {
+  position: absolute;
+  top: 32px;
+  left: 40px;
   border-radius: 30px;
   border: 2px solid #3b6077;
   color: #000814;
   background-color: #000814;
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
 }
+
+.display-btn:hover{
+  background-color: #3b6077;
+}
+
+.button {
+  display: inline;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #006eff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
 
 .select {
   cursor: pointer;
@@ -27,7 +51,17 @@ body.dark {
   padding: 2px 10px 4px 2px;
 }
 
+input[type="text"] {
+  margin-left: 10px;
+  margin-top: 2px;
+  border-radius: 6px;
+  padding: 4px 10px 4px 2px;
+  max-width: 55%;
+}
+
 input[type="submit"] {
+  float: right;
+  margin-right: 15px;
   padding: 8px 15px;
   font-size: 14px;
   font-weight: 700;
@@ -61,7 +95,7 @@ body.dark input::file-selector-button {
   background-color: gray;
 }
 
-body.dark .btn {
+body.dark .display-btn {
   color: #D0D0D7;
   background-color: #D0D0D7;
 }
@@ -116,7 +150,6 @@ body.dark hr {
 p {
   margin-bottom: 20px;
   font-size: 18px;
-  line-height: 30px;
 }
 
 body.dark p {
@@ -235,12 +268,13 @@ img.img-fluid {
 
 
 .form-container {
-    margin-top: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 fieldset {
@@ -248,7 +282,7 @@ fieldset {
     border: 2px solid #3b6077;
     border-radius: 10px;
     height: 200px;
-    width: 400px;
+    max-width: 100%;
 }
 
 legend {
@@ -256,7 +290,7 @@ legend {
     font-weight: 600;
     color: #002b4c;
     margin-bottom: 10px;
-    margin-left: 20px;
+    margin-left: 13px;
     width: auto;
     padding-left: 2px;
     padding-right: 2px; 
