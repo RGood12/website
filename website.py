@@ -5,6 +5,7 @@ import io
 import json
 import qrcode, pyshorteners
 import base64
+from datetime import datetime
 from io import BytesIO
 from urllib.parse import urlparse
 from static.secrets import port
@@ -72,8 +73,10 @@ class HEICHandler(tornado.web.RequestHandler):
        self.render("heic.html")
     def post(self):
         try:
+            print(self.request.files.items())
             heic_convert(self, self.request.files.items())
-        except:
+        except Exception as e:
+            print(f"{e}")
             self.render("heic_error.html")
 
 class URLHandler(tornado.web.RequestHandler):
@@ -108,12 +111,16 @@ class BPHandler(tornado.web.RequestHandler):
             # File uploaded successfully, remove the temporary file/directory
             os.remove(file_name)
 
-        #except Exception as e:
-        #    self.set_status(500)
-        #    self.write(f"Error uploading file: {str(e)}")
+            with open('photo.log', 'a') as file:
+                timestamp = datetime.now().strftime('%m/%d/%Y %I:%M:%S %p')
+                file.write(f"{timestamp} -  For: {buddy_name} | Message: {msg} | From: {submitter_name}\n")
+
+            self.render("photo_upload_success.html")
+
         except Exception as e:
             print(e)
             self.render("heic_error.html")
+
 if __name__ == "__main__":
 
     dirname = os.path.dirname(__file__)
