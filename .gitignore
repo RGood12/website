@@ -1,8 +1,11 @@
 # Secrets
 static/secrets.py
+birthdays.json
+scripts/upload_photo.py
+service-credentials.json
 
 # Venv
-web_env/
+wb_env/
 dev_env/
 
 # Byte-compiled / optimized / DLL files

@@ -2,15 +2,15 @@
 {% block body %}
 
 <title>Certs & Trainings - Randy Goodson</title>
+<div class="form-container">
+    <div class="col-md-8">
+        <h2>Certifications and Trainings</h2>
+        <p>Below are some of my professional certifications and trainings that I have acheived</p>
+    </div>
 
-<div class="col-md-8">
-    <h1>Certifications and Trainings</h1>
-    <p>Below are some of my professional certifications and trainings that I have acheived</p>
-</div>
+    <hr>
 
-<hr style="width:50%;text-align:left;margin-left:0">
-
-<div class="col-md-8" style="margin-top:30px">
+    <div class="col-md-8" style="margin-top:30px">
         {% for cert in descriptions %}
         <h3 style="text-align:left;"><a href="/certsandtrainings/{{ cert['path'] }}" title="">{{ cert['title'] }}</a></h3>
             <p>{{ cert['description'] }}</p>
