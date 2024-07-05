@@ -3,18 +3,20 @@
 
 <title>Tools</title>
 
+<div class="form-container">
 <div class="col-md-8">
-    <h1>Tools</h1>
+    <h2>Tools</h2>
     <p>Here are a few tools I've written in Python for various uses!</p>
 </div>
 
-<hr style="width:50%;text-align:left;margin-left:0">
+<hr>
 
 <div class="col-md-8" style="margin-top:30px">
         {% for tool in descriptions %}
         <h3 style="text-align:left;"><a href="../{{ tool['path'] }}" title="">{{ tool['title'] }}</a></h3>
             <p>{{ tool['description'] }}</p>
         {% end %}
+</div>
 </div>
 
 {% end %}

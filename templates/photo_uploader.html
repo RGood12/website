@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block body %}
+
+</body>
+<body class="bpu">
+
+<title>Buddy Photo Uploader</title>
+
+<div class="form-container" style="margin-top: 10px;">
+    <h1 style="text-align: center; width: 350px; margin-bottom: 20px; margin-top: 0px;">Birthday Bot Photo Submission</h1>
+    <form enctype="multipart/form-data" method="POST">
+    <fieldset style="height: 90px;">
+        <legend>Select a Buddy</legend>
+            <label for="buddy" style="margin-left: 20px;"></label>
+            <select class="select" name="buddy" id="buddy">
+            <option disabled selected value>Select</option>
+            <option value="Alex">Alex Medlin</option>
+            <option value="chenson™">Chris Henson</option>
+            <option value="Chris M">Chris Morris</option>
+            <option value="Chris W">Chris Weisberg</option>
+            <option value="David">David Hance</option>
+            <option value="Henry">Henry Benschoter</option>
+            <option value="Ian">Ian Andrup</option>
+            <option value="Jack">Jack Laughead</option>
+            <option value="Joey">Joey Arriola</option>
+            <option value="Josh">Josh Franz</option>
+            <option value="Kristof">Kristof Willimann</option>
+            <option value="Kyle">Kyle Beaman</option>
+            <option value="Lauren">Lauren Gayre</option>
+            <option value="Marshal">Marshal Covin</option>
+            <option value="Randy">Randy Goodson</option>
+            <option value="Thai">Thai Vu</option>
+            <option value="Tony">Tony Dejesus</option>
+            <option value="Trent">Trent Peters</option>
+            </select> 
+    </fieldset>
+    <fieldset style="height: 90px;">
+        <legend>Upload Photo</legend>
+        <input type="file" name="file" style="margin-left: 20px; margin-top: -5px;">
+    </fieldset>
+    <fieldset style="height: 260px;">
+        <legend>Message (optional)</legend>
+        <textarea type="text" id="message" name="message" style="margin-left: 18px; height: 90%; width: 90%; border-radius: 4px; resize: none;"></textarea>
+    </fieldset>
+    <fieldset style="height: 90px;">
+        <legend>Your Name (optional)</legend>
+        <label for="submitter" style="margin-left: 20px;"></label>
+            <select class="select" name="submitter" id="submitter">
+            <option disabled selected value>Select</option>
+            <option value="Alex">Alex Medlin</option>
+            <option value="chenson™">Chris Henson</option>
+            <option value="Chris M">Chris Morris</option>
+            <option value="Chris W">Chris Weisberg</option>
+            <option value="David">David Hance</option>
+            <option value="Henry">Henry Benschoter</option>
+            <option value="Ian">Ian Andrup</option>
+            <option value="Jack">Jack Laughead</option>
+            <option value="Joey">Joey Arriola</option>
+            <option value="Josh">Josh Franz</option>
+            <option value="Kristof">Kristof Willimann</option>
+            <option value="Kyle">Kyle Beaman</option>
+            <option value="Lauren">Lauren Gayre</option>
+            <option value="Marshal">Marshal Covin</option>
+            <option value="Randy">Randy Goodson</option>
+            <option value="Thai">Thai Vu</option>
+            <option value="Tony">Tony Dejesus</option>
+            <option value="Trent">Trent Peters</option>
+            </select>
+    </fieldset>
+    <input type="submit" value="Submit" style="float: left; margin-top: 10px; margin-bottom: 50px; text-align: center; width: 100%; padding: 8px; font-size: 20px;">
+    </form>
+</div>
+
+<script>
+document.getElementById('buddy').addEventListener('change', function() {
+    var selectedOption = this.value;
+    var submitterOptions = document.getElementById('submitter').options;
+    for (var i = 0; i < submitterOptions.length; i++) {
+        if (submitterOptions[i].value === selectedOption) {
+            submitterOptions[i].disabled = true;
+        } else {
+            submitterOptions[i].disabled = false;
+        }
+    }
+});
+</script>
+{% end %}
+
