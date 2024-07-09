@@ -18,6 +18,7 @@ body {
   max-width: 100%;
   overflow: hidden;
   background-color: var(--seasalt);
+  transition: background-color 1s ease-out, color 1s ease-out;
 }
 
 body.dark {
@@ -276,7 +277,7 @@ img.img-fluid {
 }
 
 .nav li {
-  text-align: center;
+  text-align: left;
 }
 
 .nav a {
