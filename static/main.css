@@ -126,15 +126,6 @@ body.dark input::file-selector-button {
 }
 
 h1 {
-  color: var(--brandy-blue);
-  margin-top: 30px;
-  margin-bottom: 10px;
-  font-size: 40px;
-  font-weight: 600;
-  display: inline-block;
-}
-
-h1.inv {
   color: var(--dark-brandy);
   margin-top: 30px;
   margin-bottom: 10px;
@@ -159,7 +150,7 @@ h4 {
   display: inline-block;
 }
 
-body.dark h1.inv {
+body.dark h1 {
   color: var(--brandy-blue);
 }
 
@@ -172,7 +163,7 @@ body.dark h3 {
 }
 
 hr {
-  width: 100%;
+  width: 65%;
   text-align: center;
 }
 
