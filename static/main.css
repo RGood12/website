@@ -18,7 +18,7 @@ body {
   max-width: 100%;
   overflow: hidden;
   background-color: var(--seasalt);
-  transition: background-color 1s ease-out, color 1s ease-out;
+  transition: background-color .3s ease-out, color .3s ease-out;
 }
 
 body.dark {
@@ -41,6 +41,10 @@ body.dark {
 
 .display-btn:hover{
   background-color: #3b6077;
+}
+
+.display-btn:focus {
+   outline: transparent;
 }
 
 body.dark .display-btn {
