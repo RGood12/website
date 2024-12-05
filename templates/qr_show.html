@@ -5,23 +5,23 @@
 
 <div class="form-container">
     <div class="col-md-8">
-        <h2>QR Code Generator</h2>
+        <h1>QR Code Generator</h1>
         <p>
-            QR Code for <i><u>{{ link }}</u></i>. Click 💾 to save as a .png, or right click to save as.
+            QR Code for <b>{{ link }}</b>
         </p>
-    </div>
 
-    <hr>
+    <hr style="width: 100%">
 
-    <div class="col-md-8">
+    <div>
         <p></p>
-        <fieldset style="width: 296px;height: 345px;">
+        <fieldset style="width: 294px;height: 332px;">
             <legend>QR Code</legend>
-            <img id="qr_code" src="data:image/png;base64, {{ qr_str }}" alt="QR Code" title="{{ domain }}"/>
+            <img id="qr_code" style="border-radius: 8px;" src="data:image/png;base64, {{ qr_str }}" alt="QR Code" title="{{ domain }}"/>
         </fieldset>
         <a id="save" download="test.com.png" class="button" style="float: left;background-color: lightgray;font-size: 24px;padding: 6px 10px 6px 10px;display: inline;">💾</a>
         <button class="button" style="margin-left: 175px; font-size: 16px;" onclick="window.location.href='/qr'";>Reset</button>
     </div>
+</div>
 </div>
     <script>
         document.getElementById('save').addEventListener('click', function () {

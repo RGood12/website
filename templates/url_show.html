@@ -5,22 +5,24 @@
 
 <div class="form-container">
 <div class="col-md-8">
-    <h2>URL Shortener</h2>
+    <h1>URL Shortener</h1>
     <p>
-       Shortened URL for <i><u>{{ link }}</i></u>. Click 📋 to copy to clipboard.
+       Shortened URL for <b>{{ link }}</b>
     </p>
-</div>
 
-<hr>
+<hr style="width: 100%">
 
-<div class="col-md-8">
+<div>
     <p></p>
         <fieldset style="width: 380px;height: 100px;">
             <legend>Shortened URL</legend>
             <p id="short_url" style="margin-left: 18px; font-size: 22px; display: inline;">{{ short_url }}</p>
-            <button class="button" style="float: right; margin-right: 9px; margin-top: -1px; background-color: lightgray; font-size: 24px; padding: revert; display: inline;" onclick="Copy()">📋</button>
+            <button class="button" title="Copy to Clipboard" style="float: right; margin-right: 9px; margin-top: -1px; background-color: lightgray; font-size: 24px; padding: revert; display: inline;" onclick="Copy()">📋</button>
         </fieldset>
     <button class="button" style="float: left; font-size: 16px;" onclick="window.location.href='/url-shortener'";>Reset</button>
+
+</div>
+</div>
 
 <script>
   let text = document.getElementById('short_url').innerHTML;

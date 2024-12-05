@@ -1,1 +1,3 @@
-[{"path": "costing_allocations", "title": "Costing Allocations", "description": "Description here!"}]
+[{"path": "costing_allocations", "title": "Costing Allocations", "description": "Description here!"},
+ {"path": "nol_tool", "title": "Nearest Office Locator", "description": "Description here!"},
+ {"path": "hcm_eib", "title": "HCM EIB Generator", "description": "Description here!"}]
