@@ -273,6 +273,10 @@ img.headshot {
   width: 70%;
 }
 
+img.cert {
+  width: 40%;
+}
+
 img.card-img-top {
   max-width: 100%;
   min-height: 150px;
@@ -421,5 +425,9 @@ body.dark .menu-toggle span {
     .bpu input {
         float: unset;
         width: 100%;
-    } 
+    }
+
+    img.cert {
+        width: 90%;
+    }
 }
