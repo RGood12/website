@@ -219,10 +219,36 @@ li::marker {
 
 svg {
   margin-right: 15px;
+  position: relative;
+}
+
+path:hover {
+  fill: var(--brandy-blue);
+}
+
+
+.hover-area {
+  fill: none;
+  pointer-events: all;
+  stroke: transparent;
+  stroke-width: 3px;
+}
+
+.hover-container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hover-container:hover svg path {
+  fill: var(--brandy-blue);
 }
 
 body.dark path {
   fill: var(--seasalt);
+}
+
+body.dark .hover-container:hover svg path {
+   fill: #00b6ff;
 }
 
 content {
@@ -275,7 +301,7 @@ img.img-fluid {
   opacity: 0%;
   background-color: var(--dark-brandy);
   width: 320px;
-  height: 200vh;
+  height: 100%;
   padding-top: 50px;
   z-index: -1;
 }
